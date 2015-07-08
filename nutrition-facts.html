@@ -1,0 +1,318 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="nutrition-facts">
+   <style type="text/css">
+       .nutrition-facts {
+           
+       }
+       
+       .nutrition-facts-header {
+           font-family: "Franklin Gothic Heavy", "Helvetica Black", "Helvetica", "sans-serif";
+           font-weight: bold;
+           font-size: 1.3em;
+       }
+       
+       .nutrition-label-regular {
+           font-family: "Helvetica", "sans-serif";
+           font-weight: normal;
+           font-size: 0.8em;
+       }
+       
+       .nutrition-label-bold {
+           font-family: "Helvetica Black", "Helvetica", "sans-serif";
+           font-weight: bold;
+           font-size: 0.8em;
+       }
+       
+       .nutrition-value-regular {
+           font-family: "Helvetica", "sans-serif";
+           font-weight: normal;
+           font-size: 0.8em;
+       }
+       
+       hr {
+           color: black;
+           background: black;
+           clear: both;
+           margin-bottom: 0;
+           margin-top: 0;
+       }
+       
+       .heavy-rule {
+           height: 7pt;
+       }
+       
+       .medium-rule {
+           height: 3pt;
+       }
+       
+       .fine-rule {
+           height: 0.25pt;
+       }
+       
+       .daily-value {
+           float: right;
+       }
+       
+       .clear {
+           clear: both;
+       }
+       
+       .left {
+           float: left;
+       }
+       
+       .right {
+           float: right;
+       }
+       
+       .indent-left {
+           margin-left: 1em;
+       }
+       
+       .hidden {
+           display: none;
+       }
+       
+       .recommended-daily-values {
+           font-family: "Helvetica", "sans-serif";
+           font-weight: normal;
+           font-size: 0.6em;
+           text-align: left;
+           width: 100%;
+       }
+       
+       thead th {
+           border-bottom: 1pt solid black;
+        }
+       
+   </style>
+   
+   <template>
+        <div class="nutrition-facts" vocab="http://schema.org/" typeof="NutritionInformation" itemscope itemtype="http://schema.org/NutritionInformation">
+            <div class="nutrition-facts-header">Nutrition Facts</div>
+            <div class="serving-size"><span class="nutrition-label-regular">Serving Size</span> <span class="nutrition-value-regular" property="servingSize" itemprop="servingSize">{{servingSize}}</span></div>
+            <div class="servings-per-container"><span class="nutrition-label-regular">Servings Per Container</span> <span class="nutrition-value-regular">{{servings}}</span></div>
+       
+            <hr class="heavy-rule" />
+       
+            <div class="amount-per-serving"><span class="nutrition-label-regular">Amount Per Serving</span></div>
+            
+            <hr class="fine-rule" />
+            
+            <div class="calories"><span class="nutrition-label-bold">Calories</span> <span class="nutrition-value-regular" property="calories" itemprop="calories">200</span></div>
+            
+            <hr class="medium-rule" />
+            
+            <div class="daily-value-header"><span class="nutrition-label-bold daily-value">% Daily Value*</span></div>
+            
+            <hr class="fine-rule" />
+            
+            <div class="total-fat clear">
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Total Fat</span>  
+                <span class="nutrition-value-regular" property="fatContent" itemprop="fatContent">{{totalFat}}</span><span class="nutrition-value-regular">g</span></span>
+                <span class="nutrition-percentage nutrition-label-bold right">{{totalFatPercentage}}</span>
+            </div>
+            
+            <div class="fat-details indent-left clear">
+                
+            
+                <div class="saturated-fat clear">
+                    <hr class="fine-rule" />
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Saturated Fat</span>  
+                    <span class="nutrition-value-regular" property="saturatedFatContent" itemprop="saturatedFatContent">{{saturatedFat}}</span><span class="nutrition-value-regular">g</span></span>
+                    <span class="nutrition-percentage nutrition-label-bold right">{{saturatedFatPercentage}}</span>
+                </div>
+                
+                <div class="trans-fat clear">
+                    <hr class="fine-rule" />
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Trans Fat</span>  
+                    <span class="nutrition-value-regular" property="transFatContent" itemprop="transFatContent">{{transFat}}</span><span class="nutrition-value-regular">g</span></span>
+                </div>
+                
+            </div>
+            
+            <hr class="fine-rule" />
+            
+            <div class="cholesterol clear">
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Cholesterol</span>  
+                <span class="nutrition-value-regular" property="cholesterolContent" itemprop="cholesterolContent">{{cholesterol}}</span><span class="nutrition-value-regular">mg</span></span>
+                <span class="nutrition-percentage nutrition-label-bold right">{{cholesterolPercentage}}</span>
+            </div>
+            
+            <hr class="fine-rule" />
+            
+            <div class="sodium clear">
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Sodium</span>  
+                <span class="nutrition-value-regular" property="sodiumContent" itemprop="sodiumContent">{{sodium}}</span><span class="nutrition-value-regular">mg</span></span>
+                <span class="nutrition-percentage nutrition-label-bold right">{{sodiumPercentage}}</span>
+            </div>
+            
+            <hr class="fine-rule" />
+            
+            <div class="carbohydrate clear">
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Total Carbohydrates</span>  
+                <span class="nutrition-value-regular" property="carbohydrateContent" itemprop="carbohydrateContent">{{carbohydrates}}</span><span class="nutrition-value-regular">g</span></span>
+                <span class="nutrition-percentage nutrition-label-bold right">{{carbohydratesPercentage}}</span>
+            </div>
+            
+            <div class="carbohydrate-details indent-left clear">
+            
+                <div class="dietary-fiber clear">
+                    <hr class="fine-rule" />
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Dietary Fiber</span>  
+                    <span class="nutrition-value-regular" property="fiberContent" itemprop="fiberContent">{{fiber}}</span><span class="nutrition-value-regular">g</span></span>
+                    <span class="nutrition-percentage nutrition-label-bold right">{{fiberPercentage}}</span>
+                </div>
+                
+                
+                <div class="sugars clear">
+                    <hr class="fine-rule" />
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Sugars</span>  
+                    <span class="nutrition-value-regular" property="sugarContent" itemprop="sugarContent">{{sugars}}</span><span class="nutrition-value-regular">g</span></span>
+                </div>
+                
+            </div>
+            
+            <hr class="fine-rule" />
+            
+            <div class="protein clear">
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Protein</span>  
+                <span class="nutrition-value-regular" property="proteinContent" itemprop="proteinContent">{{protein}}</span><span class="nutrition-value-regular">g</span></span>
+            </div>
+            
+            <hr class="heavy-rule" />
+            
+            <div class="recommended-daily-values">
+                *Percent Daily Values are based on a 2,000 calorie diet.
+                Your daily values may be higher or lower depending on your calorie needs:
+            </div>
+            
+            <table class="recommended-daily-values">
+                <thead class="recommended-daily-values-header">
+                    <tr>
+                      <th></th>  
+                      <th>Calories</th>  
+                      <th>2,000</th>
+                      <th>2,500</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Fat</td>
+                        <td>Less than</td>
+                        <td>65g</td>
+                        <td>80g</td>
+                    </tr>
+                    <tr>
+                        <td><span class="indent-left">Sat Fat</span></td>
+                        <td>Less than</td>
+                        <td>20g</td>
+                        <td>25g</td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td>Less than</td>
+                        <td>300mg</td>
+                        <td>300mg</td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td>Less than</td>
+                        <td>2,400mg</td>
+                        <td>2,400mg</td>
+                    </tr>
+                    <tr>
+                        <td>Total Carbohydrate</td>
+                        <td></td>
+                        <td>300g</td>
+                        <td>375g</td>
+                    </tr>
+                    <tr>
+                        <td><span class="indent-left">Dietary Fiber</span></td>
+                        <td></td>
+                        <td>25g</td>
+                        <td>30g</td>
+                    </tr>
+                </tbody>
+            </table>
+       
+        </div>
+        
+        
+    </template>
+</dom-module>
+
+<script>
+(function() {
+    
+    var DAILY_TOTAL_FAT_G = 65;
+    var DAILY_SATURATED_FAT_G = 20;
+    var DAILY_CHOLESTEROL_MG = 300;
+    var DAILY_SODIUM_MG = 2400;
+    var DAILY_CARBOHYDRATES_G = 300;
+    var DAILY_FIBER_G = 25;
+   
+    var percentage = function(value, dailyValue) {
+        return Math.round((value / dailyValue) * 100) + '%';
+    };
+    
+    Polymer({
+        is: 'nutrition-facts',
+
+        attached: function() {
+            this.totalFatPercentage = percentage(this.totalFat, DAILY_TOTAL_FAT_G);
+            this.saturatedFatPercentage = percentage(this.saturatedFat, DAILY_SATURATED_FAT_G);
+            this.cholesterolPercentage = percentage(this.cholesterol, DAILY_CHOLESTEROL_MG);
+            this.sodiumPercentage = percentage(this.sodium, DAILY_SODIUM_MG);
+            this.carbohydratesPercentage = percentage(this.carbohydrates, DAILY_CARBOHYDRATES_G);
+            this.fiberPercentage = percentage(this.fiber, DAILY_FIBER_G);
+        },
+
+        properties: {
+            servingSize: String,
+            servings: String,
+            calories: {
+                type: Number,
+                value: 0 
+            },
+            totalFat: {
+                type: Number,
+                value: 0
+            },
+            saturatedFat: {
+                type: Number,
+                value: 0
+            },
+            transFat: {
+                type: Number,
+                value: 0
+            },
+            cholesterol: {
+                type: Number,
+                value: 0
+            },
+            sodium: {
+                type: Number,
+                value: 0
+            },
+            carbohydrates: {
+                type: Number,
+                value: 0
+            },
+            fiber: {
+                type: Number,
+                value: 0
+            },
+            sugars: {
+                type: Number,
+                value: 0
+            },
+            protein: {
+                type: Number,
+                value: 0
+            }
+        }
+    });
+}());
+</script>

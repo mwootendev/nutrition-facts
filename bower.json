@@ -1,0 +1,25 @@
+{
+    "name": "nutrition-facts",
+    "version": "0.1.0",
+    "description": "Nutrition label",
+    "license": "MIT",
+    "main": "nutrition-facts.html",
+    "keywords": [
+        "polymer",
+        "web-components",
+        "nutrition",
+        "health",
+        "diet",
+        "semantic",
+        "RDFa",
+        "microdata",
+        "schema.org"
+    ],
+    "ignore": [
+        "**/.*",
+        "bower_components"
+    ],
+    "dependencies": {
+        "polymer": "Polymer/polymer#^0.9.0"
+    }
+}

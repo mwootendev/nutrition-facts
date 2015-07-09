@@ -1,93 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="nutrition-vitamin.html">
+<link rel="stylesheet" href="nutrition-facts.css">
 
 <dom-module id="nutrition-facts">
-   <style type="text/css">
-       .nutrition-facts {
-           
-       }
-       
-       .nutrition-facts-header {
-           font-family: "Franklin Gothic Heavy", "Helvetica Black", "Helvetica", "sans-serif";
-           font-weight: bold;
-           font-size: 1.3em;
-       }
-       
-       .nutrition-label-regular {
-           font-family: "Helvetica", "sans-serif";
-           font-weight: normal;
-           font-size: 0.8em;
-       }
-       
-       .nutrition-label-bold {
-           font-family: "Helvetica Black", "Helvetica", "sans-serif";
-           font-weight: bold;
-           font-size: 0.8em;
-       }
-       
-       .nutrition-value-regular {
-           font-family: "Helvetica", "sans-serif";
-           font-weight: normal;
-           font-size: 0.8em;
-       }
-       
-       hr {
-           color: black;
-           background: black;
-           clear: both;
-           margin-bottom: 0;
-           margin-top: 0;
-       }
-       
-       .heavy-rule {
-           height: 7pt;
-       }
-       
-       .medium-rule {
-           height: 3pt;
-       }
-       
-       .fine-rule {
-           height: 0.25pt;
-       }
-       
-       .daily-value {
-           float: right;
-       }
-       
-       .clear {
-           clear: both;
-       }
-       
-       .left {
-           float: left;
-       }
-       
-       .right {
-           float: right;
-       }
-       
-       .indent-left {
-           margin-left: 1em;
-       }
-       
-       .hidden {
-           display: none;
-       }
-       
-       .recommended-daily-values {
-           font-family: "Helvetica", "sans-serif";
-           font-weight: normal;
-           font-size: 0.6em;
-           text-align: left;
-           width: 100%;
-       }
-       
-       thead th {
-           border-bottom: 1pt solid black;
-        }
-       
-   </style>
-   
+    
    <template>
         <div class="nutrition-facts" vocab="http://schema.org/" typeof="NutritionInformation" itemscope itemtype="http://schema.org/NutritionInformation">
             <div class="nutrition-facts-header">Nutrition Facts</div>
@@ -116,7 +32,6 @@
             
             <div class="fat-details indent-left clear">
                 
-            
                 <div class="saturated-fat clear">
                     <hr class="fine-rule" />
                     <span class="nutrition-value left"><span class="nutrition-label-regular">Saturated Fat</span>  
@@ -182,6 +97,8 @@
             </div>
             
             <hr class="heavy-rule" />
+            
+            <content id="vitamins" select="nutrition-vitamin"></content>
             
             <div class="recommended-daily-values">
                 *Percent Daily Values are based on a 2,000 calorie diet.

@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="stylesheet" href="nutrition-facts.css">
+
+<dom-module id="nutrition-vitamin">
+
+   <template>
+        <div class="nutrition-vitamin">
+            
+            <div class="vitamin clear">
+                <span class="nutrition-value left"><span class="nutrition-label-regular">{{name}}</span></span>  
+                <span class="nutrition-percentage nutrition-label-regular right">{{percentage}}</span>
+            </div>
+            
+            <hr class="fine-rule" />
+        </div>
+            
+    </template>
+</dom-module>
+
+<script>
+(function() {
+   
+    Polymer({
+        is: 'nutrition-vitamin',
+
+        attached: function() {
+            this.percentage += '%';
+        },
+
+        properties: {
+            name: String,
+            percentage: Number
+        }
+    });
+}());
+</script>

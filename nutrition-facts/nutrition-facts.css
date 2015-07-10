@@ -1,0 +1,86 @@
+
+div.nutrition-facts[typeof=NutritionInformation] {
+  border: 1pt solid black;
+  padding: 0.1em;
+}
+
+.nutrition-facts-header {
+   font-family: "Franklin Gothic Heavy", "Helvetica Black", "Helvetica", "sans-serif";
+   font-weight: bold;
+   font-size: 1.3em;
+}
+
+.nutrition-label-regular {
+   font-family: "Helvetica", "sans-serif";
+   font-weight: normal;
+   font-size: 0.8em;
+}
+
+.nutrition-label-bold {
+   font-family: "Helvetica Black", "Helvetica", "sans-serif";
+   font-weight: bold;
+   font-size: 0.8em;
+}
+
+.nutrition-value-regular {
+   font-family: "Helvetica", "sans-serif";
+   font-weight: normal;
+   font-size: 0.8em;
+}
+
+hr {
+   color: black;
+   background: black;
+   clear: both;
+   margin-bottom: 0;
+   margin-top: 0;
+}
+
+.heavy-rule {
+   height: 7pt;
+}
+
+.medium-rule {
+   height: 3pt;
+}
+
+.fine-rule {
+   height: 0.25pt;
+}
+
+.daily-value {
+   float: right;
+}
+
+.clear {
+   clear: both;
+}
+
+.left {
+   float: left;
+}
+
+.right {
+   float: right;
+}
+
+.indent-left {
+   margin-left: 1em;
+}
+
+.hidden {
+   display: none;
+}
+
+.recommended-daily-values {
+   font-family: "Helvetica", "sans-serif";
+   font-weight: normal;
+   font-size: 0.6em;
+   text-align: left;
+   width: 100%;
+}
+
+thead th {
+   border-bottom: 1pt solid black;
+}
+       

@@ -9,17 +9,21 @@
 
  ## Examples
 
- <nutrition-facts serving-size="8 fl oz (240 mL)" servings="2.5"
-   calories="110" total-fat="0" sodium="70" carbohydrates="31" sugars="30">
- </nutrition-facts>
+ Basic Example:
+ 
+     <nutrition-facts serving-size="8 fl oz (240 mL)" servings="2.5"
+       calories="110" total-fat="0" sodium="70" carbohydrates="31" sugars="30">
+     </nutrition-facts>
 
- <nutrition-facts serving-size="3/4 cup (30g)" servings="15"
-   calories="100" total-fat="0.5" sodium="140" sodium="70" carbohydrates="22" sugars="5" fiber="3">
-   <nutrition-vitamin name="Vitamin A" percentage="10"></nutrition-vitamin>
-   <nutrition-vitamin name="Vitamin C" percentage="100"></nutrition-vitamin>
-   <nutrition-vitamin name="Calcium" percentage="100"></nutrition-vitamin>
-   <nutrition-vitamin name="Iron" percentage="100"></nutrition-vitamin>
- </nutrition-facts>
+ With Ingredients:
+
+     <nutrition-facts serving-size="3/4 cup (30g)" servings="15"
+       calories="100" total-fat="0.5" sodium="140" sodium="70" carbohydrates="22" sugars="5" fiber="3">
+       <nutrition-vitamin name="Vitamin A" percentage="10"></nutrition-vitamin>
+       <nutrition-vitamin name="Vitamin C" percentage="100"></nutrition-vitamin>
+       <nutrition-vitamin name="Calcium" percentage="100"></nutrition-vitamin>
+       <nutrition-vitamin name="Iron" percentage="100"></nutrition-vitamin>
+     </nutrition-facts>
 
  @element nutrition-facts
  @blurb Provides an internal element within nutrition-facts that can be used to specify

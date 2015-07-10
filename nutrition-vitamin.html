@@ -1,25 +1,41 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="stylesheet" href="nutrition-facts.css">
 
+<!--
+ Component element of a nutrition-facts element that specifies a vitamin and the
+ percentage of its daily value. This element is only meant to be used within a
+ <nutrition-facts> element.
+
+ ## Examples
+
+ <nutrition-facts ...>
+   <nutrition-vitamin name="Vitamin A" percentage="30"></nutrition-vitamin>
+ </nutrition-facts>
+
+ @element nutrition-vitamin
+ @blurb Provides an internal element within nutrition-facts that can be used to specify
+        the daily percentage of a vitamin.
+-->
+
 <dom-module id="nutrition-vitamin">
 
    <template>
         <div class="nutrition-vitamin">
-            
+
             <div class="vitamin clear">
-                <span class="nutrition-value left"><span class="nutrition-label-regular">{{name}}</span></span>  
+                <span class="nutrition-value left"><span class="nutrition-label-regular">{{name}}</span></span>
                 <span class="nutrition-percentage nutrition-label-regular right">{{percentage}}</span>
             </div>
-            
+
             <hr class="fine-rule" />
         </div>
-            
+
     </template>
 </dom-module>
 
 <script>
 (function() {
-   
+
     Polymer({
         is: 'nutrition-vitamin',
 
@@ -28,14 +44,19 @@
         },
 
         properties: {
-            
+
             /**
              * The name of the vitamin.
-             */ 
+             *
+             * @attribute name
+             * @type string
+             */
             name: String,
-            
+
             /**
              * The percentage of the vitamin's daily value provided.
+             * @attribute percentage
+             * @type number
              */
             percentage: Number
         }

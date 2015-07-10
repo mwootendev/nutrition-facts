@@ -2,120 +2,146 @@
 <link rel="import" href="nutrition-vitamin.html">
 <link rel="stylesheet" href="nutrition-facts.css">
 
+<!--
+ Component element of a nutrition-facts element that specifies a vitamin and the
+ percentage of its daily value. This element is only meant to be used within a
+ <nutrition-facts> element.
+
+ ## Examples
+
+ <nutrition-facts serving-size="8 fl oz (240 mL)" servings="2.5"
+   calories="110" total-fat="0" sodium="70" carbohydrates="31" sugars="30">
+ </nutrition-facts>
+
+ <nutrition-facts serving-size="3/4 cup (30g)" servings="15"
+   calories="100" total-fat="0.5" sodium="140" sodium="70" carbohydrates="22" sugars="5" fiber="3">
+   <nutrition-vitamin name="Vitamin A" percentage="10"></nutrition-vitamin>
+   <nutrition-vitamin name="Vitamin C" percentage="100"></nutrition-vitamin>
+   <nutrition-vitamin name="Calcium" percentage="100"></nutrition-vitamin>
+   <nutrition-vitamin name="Iron" percentage="100"></nutrition-vitamin>
+ </nutrition-facts>
+
+ @element nutrition-facts
+ @blurb Provides an internal element within nutrition-facts that can be used to specify
+        the daily percentage of a vitamin.
+ @homepage http://mwootendev.github.io/nutrition-facts/
+ @demo demo/index.html
+-->
+
 <dom-module id="nutrition-facts">
-    
+
     <style type="text/css">
         :host {
             display: inline-block;
         }
     </style>
-    
+
    <template>
         <div class="nutrition-facts" vocab="http://schema.org/" typeof="NutritionInformation" itemscope itemtype="http://schema.org/NutritionInformation">
             <div class="nutrition-facts-header">Nutrition Facts</div>
             <div class="serving-size"><span class="nutrition-label-regular">Serving Size</span> <span class="nutrition-value-regular" property="servingSize" itemprop="servingSize">{{servingSize}}</span></div>
             <div class="servings-per-container"><span class="nutrition-label-regular">Servings Per Container</span> <span class="nutrition-value-regular">{{servings}}</span></div>
-       
+
             <hr class="heavy-rule" />
-       
+
             <div class="amount-per-serving"><span class="nutrition-label-regular">Amount Per Serving</span></div>
-            
+
             <hr class="fine-rule" />
-            
+
             <div class="calories"><span class="nutrition-label-bold">Calories</span> <span class="nutrition-value-regular" property="calories" itemprop="calories">200</span></div>
-            
+
             <hr class="medium-rule" />
-            
+
             <div class="daily-value-header"><span class="nutrition-label-bold daily-value">% Daily Value*</span></div>
-            
+
             <hr class="fine-rule" />
-            
+
             <div class="total-fat clear">
-                <span class="nutrition-value left"><span class="nutrition-label-bold">Total Fat</span>  
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Total Fat</span>
                 <span class="nutrition-value-regular" property="fatContent" itemprop="fatContent">{{totalFat}}</span><span class="nutrition-value-regular">g</span></span>
                 <span class="nutrition-percentage nutrition-label-bold right">{{totalFatPercentage}}</span>
             </div>
-            
+
             <div class="fat-details indent-left clear">
-                
+
                 <div class="saturated-fat clear">
                     <hr class="fine-rule" />
-                    <span class="nutrition-value left"><span class="nutrition-label-regular">Saturated Fat</span>  
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Saturated Fat</span>
                     <span class="nutrition-value-regular" property="saturatedFatContent" itemprop="saturatedFatContent">{{saturatedFat}}</span><span class="nutrition-value-regular">g</span></span>
                     <span class="nutrition-percentage nutrition-label-bold right">{{saturatedFatPercentage}}</span>
                 </div>
-                
+
                 <div class="trans-fat clear">
                     <hr class="fine-rule" />
-                    <span class="nutrition-value left"><span class="nutrition-label-regular">Trans Fat</span>  
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Trans Fat</span>
                     <span class="nutrition-value-regular" property="transFatContent" itemprop="transFatContent">{{transFat}}</span><span class="nutrition-value-regular">g</span></span>
                 </div>
-                
+
             </div>
-            
+
             <hr class="fine-rule" />
-            
+
             <div class="cholesterol clear">
-                <span class="nutrition-value left"><span class="nutrition-label-bold">Cholesterol</span>  
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Cholesterol</span>
                 <span class="nutrition-value-regular" property="cholesterolContent" itemprop="cholesterolContent">{{cholesterol}}</span><span class="nutrition-value-regular">mg</span></span>
                 <span class="nutrition-percentage nutrition-label-bold right">{{cholesterolPercentage}}</span>
             </div>
-            
+
             <hr class="fine-rule" />
-            
+
             <div class="sodium clear">
-                <span class="nutrition-value left"><span class="nutrition-label-bold">Sodium</span>  
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Sodium</span>
                 <span class="nutrition-value-regular" property="sodiumContent" itemprop="sodiumContent">{{sodium}}</span><span class="nutrition-value-regular">mg</span></span>
                 <span class="nutrition-percentage nutrition-label-bold right">{{sodiumPercentage}}</span>
             </div>
-            
+
             <hr class="fine-rule" />
-            
+
             <div class="carbohydrate clear">
-                <span class="nutrition-value left"><span class="nutrition-label-bold">Total Carbohydrates</span>  
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Total Carbohydrates</span>
                 <span class="nutrition-value-regular" property="carbohydrateContent" itemprop="carbohydrateContent">{{carbohydrates}}</span><span class="nutrition-value-regular">g</span></span>
                 <span class="nutrition-percentage nutrition-label-bold right">{{carbohydratesPercentage}}</span>
             </div>
-            
+
             <div class="carbohydrate-details indent-left clear">
-            
+
                 <div class="dietary-fiber clear">
                     <hr class="fine-rule" />
-                    <span class="nutrition-value left"><span class="nutrition-label-regular">Dietary Fiber</span>  
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Dietary Fiber</span>
                     <span class="nutrition-value-regular" property="fiberContent" itemprop="fiberContent">{{fiber}}</span><span class="nutrition-value-regular">g</span></span>
                     <span class="nutrition-percentage nutrition-label-bold right">{{fiberPercentage}}</span>
                 </div>
-                
-                
+
+
                 <div class="sugars clear">
                     <hr class="fine-rule" />
-                    <span class="nutrition-value left"><span class="nutrition-label-regular">Sugars</span>  
+                    <span class="nutrition-value left"><span class="nutrition-label-regular">Sugars</span>
                     <span class="nutrition-value-regular" property="sugarContent" itemprop="sugarContent">{{sugars}}</span><span class="nutrition-value-regular">g</span></span>
                 </div>
-                
+
             </div>
-            
+
             <hr class="fine-rule" />
-            
+
             <div class="protein clear">
-                <span class="nutrition-value left"><span class="nutrition-label-bold">Protein</span>  
+                <span class="nutrition-value left"><span class="nutrition-label-bold">Protein</span>
                 <span class="nutrition-value-regular" property="proteinContent" itemprop="proteinContent">{{protein}}</span><span class="nutrition-value-regular">g</span></span>
             </div>
-            
+
             <hr class="heavy-rule" />
-            
+
             <content id="vitamins" select="nutrition-vitamin"></content>
-            
+
             <div class="recommended-daily-values">
                 *Percent Daily Values are based on a 2,000 calorie diet.
                 Your daily values may be higher or lower depending on your calorie needs:
             </div>
-            
+
             <table class="recommended-daily-values">
                 <thead class="recommended-daily-values-header">
                     <tr>
-                      <th></th>  
-                      <th>Calories</th>  
+                      <th></th>
+                      <th>Calories</th>
                       <th>2,000</th>
                       <th>2,500</th>
                     </tr>
@@ -159,10 +185,9 @@
                     </tr>
                 </tbody>
             </table>
-       
+
         </div>
-        
-        
+
     </template>
 </dom-module>
 
@@ -170,52 +195,54 @@
 (function() {
 
     /**
-     * The maximum recommended amount of total fat (in grams) to be consumed by 
+     * The maximum recommended amount of total fat (in grams) to be consumed by
      * a person on a 2,000 calorie diet.
-     */ 
+     */
     var DAILY_TOTAL_FAT_G = 65;
-    
+
     /**
-     * The maximum recommended amount of saturated fat (in grams) to be consumed 
+     * The maximum recommended amount of saturated fat (in grams) to be consumed
      * by a person on a 2,000 calorie diet.
-     */ 
+     */
     var DAILY_SATURATED_FAT_G = 20;
-    
+
     /**
-     * The maximum recommended amount of cholesterol (in milligrams) to be 
+     * The maximum recommended amount of cholesterol (in milligrams) to be
      * consumed by a person on a 2,000 calorie diet.
-     */ 
+     */
     var DAILY_CHOLESTEROL_MG = 300;
-    
+
     /**
-     * The maximum recommended amount of sodium (in milligrams) to be consumed 
+     * The maximum recommended amount of sodium (in milligrams) to be consumed
      * by a person on a 2,000 calorie diet.
-     */ 
+     */
     var DAILY_SODIUM_MG = 2400;
-    
+
     /**
-     * The recommended amount of daily carbohydrates (in grams) to be consumed 
+     * The recommended amount of daily carbohydrates (in grams) to be consumed
      * by a person on a 2,000 calorie diet.
-     */ 
+     */
     var DAILY_CARBOHYDRATES_G = 300;
-    
+
     /**
-     * The recommended amount of daily dietary fiber (in grams) to be consumed 
+     * The recommended amount of daily dietary fiber (in grams) to be consumed
      * by a person on a 2,000 calorie diet.
-     */ 
+     */
     var DAILY_FIBER_G = 25;
-   
+
     /**
+     * Calculates the percentage of the daily value of a nutrient.
+     *
      * @param {number} value the amount of the nutrient.
      * @param {number} dailyValue the maximum or recommended daily value of the
      *        nutrient.
-     * @return {string} a string representation of the percentage of the 
+     * @return {string} a string representation of the percentage of the
      *         nutrient's daily value.
-     */ 
+     */
     var percentage = function(value, dailyValue) {
         return Math.round((value / dailyValue) * 100) + '%';
     };
-    
+
     Polymer({
         is: 'nutrition-facts',
 
@@ -230,35 +257,47 @@
 
         properties: {
             /**
-             * The serving size of the consumable described by the nutrition 
+             * The serving size of the consumable described by the nutrition
              * facts. Ex: "1/4 cup", "1 bottle", "8 fl oz", "18 pieces"
+             *
+             * @attribute servingSize
+             * @type string
              */
             servingSize: String,
-            
+
             /**
              * The number of servings of the consumable in the container.
              * Ex: "2.5", "around 4"
+             *
+             * @attribute servings
+             * @type string
              */
             servings: String,
-            
+
             /**
              * The number of calories in a single serving.
-             * Defaults to 0.
-             */ 
+             *
+             * @attribute calories
+             * @type number
+             * @default 0
+             */
             calories: {
                 type: Number,
-                value: 0 
+                value: 0
             },
-            
+
             /**
              * The total amount of fat (in grams) in a single serving.
-             * Defaults to 0.
+             *
+             * @attribute totalFat
+             * @type number
+             * @default 0
              */
             totalFat: {
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of saturated fat (in grams) in a single serving.
              * Defaults to 0.
@@ -267,7 +306,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of trans fat (in grams) in a single serving.
              * Defaults to 0.
@@ -276,7 +315,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of cholesterol (in milligrams) in a single serving.
              * Defaults to 0.
@@ -285,7 +324,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of sodium (in milligrams) in a single serving.
              * Defaults to 0.
@@ -294,7 +333,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of total carbohydrates (in grams) in a single serving.
              * Defaults to 0.
@@ -303,7 +342,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of dietary fiber (in grams) in a single serving.
              * Defaults to 0.
@@ -312,7 +351,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of sugar (in grams) in a single serving.
              * Defaults to 0.
@@ -321,7 +360,7 @@
                 type: Number,
                 value: 0
             },
-            
+
             /**
              * The amount of protein (in grams) in a single serving.
              * Defaults to 0.

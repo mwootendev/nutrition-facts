@@ -1,6 +1,7 @@
 
-.nutrition-facts {
-   
+div.nutrition-facts[typeof=NutritionInformation] {
+  border: 1pt solid black;
+  padding: 0.1em;
 }
 
 .nutrition-facts-header {

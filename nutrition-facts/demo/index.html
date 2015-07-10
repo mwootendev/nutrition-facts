@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>&lt;nutrition-facts&gt; Demo</title>
+
+  <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <link rel="import" href="../nutrition-facts.html">
+  
+  <style type="text/css">
+      nutrition-facts {
+          margin: 0.5em;
+      }
+  </style>
+
+</head>
+<body>
+<nutrition-facts serving-size="8 fl oz (240 mL)" servings="2.5"
+                 calories="110" total-fat="0" sodium="70" carbohydrates="31" sugars="30">
+</nutrition-facts>
+
+
+
+<nutrition-facts serving-size="3/4 cup (30g)" servings="15"
+                 calories="100" total-fat="0.5" sodium="140" sodium="70" carbohydrates="22" sugars="5" fiber="3">
+  <nutrition-vitamin name="Vitamin A" percentage="10"></nutrition-vitamin>
+  <nutrition-vitamin name="Vitamin C" percentage="100"></nutrition-vitamin>
+  <nutrition-vitamin name="Calcium" percentage="100"></nutrition-vitamin>
+  <nutrition-vitamin name="Iron" percentage="100"></nutrition-vitamin>
+</nutrition-facts>
+</body>
+</html>

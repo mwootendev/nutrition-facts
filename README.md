@@ -1,10 +1,9 @@
 # &lt;nutrition-facts&gt;
+===========
+> Nutrition Facts Label
 
-> Nutrition label
-
-## Demo
-
-[Check it live!](http://mwooten.github.io/nutrition-facts)
+See the [component page](http://mwootendev.github.io/nutrition-facts/) for full
+documentation.
 
 ## Install
 
@@ -35,29 +34,6 @@ Or [download as ZIP](https://github.com/mwooten/nutrition-facts/archive/master.z
     ```html
     <nutrition-facts serving-size="8 fl oz (240 mL)" servings="2.5" calories="110" total-fat="0" sodium="70" carbohydrates="31" sugars="30"></nutrition-facts>
     ```
-
-## Options
-
-Attribute        | Options     | Default      | Description
----              | ---         | ---          | ---
-`serving-size`   | *string*    | `none`       | The amount in each individual serving.
-`servings`       | *string*    | `none`       | The number of servings.
-`calories`       | *number*    | `0`          | The number of calories of the product.
-`total-fat`      | *number*    | `0`          | The total amount of fat per serving (in grams).
-`saturated-fat`  | *number*    | `0`          | The total amount of saturated fat per serving (in grams).
-`trans-fat`      | *number*    | `0`          | The total amount of trans fat per serving (in grams).
-`cholesterol`    | *number*    | `0`          | The total amount of cholesterol per serving (in milligrams).
-`sodium`         | *number*    | `0`          | The total amount of sodium per serving (in milligrams).
-`carbohydrates`  | *number*    | `0`          | The total number of carbohydrates per serving (in grams).
-`fiber`          | *number*    | `0`          | The total amount of fiber per serving (in grams).
-`sugars`         | *number*    | `0`          | The total amount of sugar per serving (in grams).
-`protein`        | *number*    | `0`          | The total amount of protein per serving (in grams).
-
-## Methods
-
-Method        | Parameters   | Returns     | Description
----           | ---          | ---         | ---
-
 ## Development
 
 In order to run it locally you'll need to fetch some dependencies and a basic server setup.
